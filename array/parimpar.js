@@ -17,8 +17,8 @@ for (let i = 0; i < vector.length; i++) {
         impares += 1
     }
 }
-console.log(pares)
-console.log(impares)
+console.log(`existen ${pares} pares`)
+console.log(`existen ${impares} impares `)
 
 //contador
 for (let i = 0; i < vector.length; i++) {
@@ -29,13 +29,13 @@ for (let i = 0; i < vector.length; i++) {
         cimpares = cimpares + vector[i]
     }
 }
-console.log(cpares)
-console.log(cimpares)
+console.log(`la suma de los pares es: ${cpares}`)
+console.log(`la suma de los impares es: ${cimpares}`)
 
 
 //promedios 
 promediop = cpares / pares
 promedioi = cimpares / impares
 
-console.log(promediop)
-console.log(promedioi)
+console.log(`El promedio de los pares es: ${promediop}`)
+console.log(`El promedio de los impares es: ${promedioi}`)
