@@ -66,8 +66,8 @@ if (a <= 3) {
 //12/06/2020
 const fecha = new Date();
 const dia = fecha.getDate();
-const mes = fecha.getMonth() ;
-const año = fecha.getFullYear(); 
+const mes = fecha.getMonth();
+const año = fecha.getFullYear();
 var d = (6);
 var m = (6);
 var a = (2022);

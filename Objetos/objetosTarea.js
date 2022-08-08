@@ -40,10 +40,10 @@ console.log('Objeto copiado modif', aprendiz2);
 //ejercicio de operaciones basicas 
 
 const literal = {
-    numerador1: '3',
-    denominador1: '4',
-    numerador2: '3',
-    denominador2: '6',
+    numerador1: 3,
+    denominador1: 4,
+    numerador2: 3,
+    denominador2: 6,
 }
 
 if (literal.denominador1 != literal.denominador2) {
@@ -70,4 +70,4 @@ console.log(`la multiplacion de las fracciones es: ${mul1}/${mul2}`)
 
 div1 = literal.numerador1 * literal.denominador2
 div2 = literal.denominador1 * literal.numerador2
-console.log(`la division de las fracciones es: ${div2}/${div1}`)
+console.log(`la division de las fracciones es: ${div1}/${div2}`)
