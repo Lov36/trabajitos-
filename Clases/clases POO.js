@@ -37,3 +37,60 @@ console.log(prod1.precio);
 // console.log(typeof(prod1));
 // console.log(prod2);
 // console.log(typeof(prod2));
+
+class Persona {
+    constructor(nombre, documento) {
+        this._nombre = nombre;
+        this._documento = documento;
+    }
+
+    get nombre() {
+        return this._nombre;
+    }
+
+    get documento() {
+        return this._documento;
+    }
+
+    set nombre(nombre) {
+        this._nombre = nombre;
+    }
+
+    set documento(documento) {
+        this._documento = documento;
+    }
+
+
+
+}
+
+const persona1 = new Persona('Juan', '12345678');
+console.log(typeof(persona1));
+
+class Aprendiz extends Persona {
+    constructor(nombre, documento, ficha, programa) {
+        super(nombre, documento);
+        this._ficha = ficha;
+        this._programa = programa;
+    }
+    get ficha() {
+        return this._ficha;
+    }
+
+    get programa() {
+        return this._programa;
+    }
+
+    set ficha(ficha) {
+        this._ficha = ficha;
+    }
+
+    set programa(programa) {
+        this._programa = programa;
+    }
+
+
+}
+
+const aprendiz1 = new Aprendiz('Juan', 12345678, 1, 'programacion');
+console.log(aprendiz1);
