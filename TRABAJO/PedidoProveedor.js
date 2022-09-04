@@ -66,19 +66,19 @@ class PedidoProveedor {
 }
 
 // --------------------------------laura 
-var proveedor1 = new Proveedor("123", "Fulanito Gomez", "31345422333");
+// var proveedor1 = new Proveedor("123", "Fulanito Gomez", "31345422333");
 
-var productoP1 = new ProductoProveedor("001", "Pan", 5000, "Rollito", "Bimbo");
+// var productoP1 = new ProductoProveedor("001", "Pan", 5000, "Rollito", "Bimbo");
 
-var productoP2 = new ProductoProveedor("002", "Galletas", 15000, "Galletas de sal, 12 unidades por paquete", "Saltin");
+// var productoP2 = new ProductoProveedor("002", "Galletas", 15000, "Galletas de sal, 12 unidades por paquete", "Saltin");
 
-var pedidoP1 = new PedidoProveedor("111", productosP1 = [], "proveedor1");
+// var pedidoP1 = new PedidoProveedor("111", productosP1 = [], "proveedor1");
 
-pedidoP1.añadirAPedidoProveedor(productoP1, 30);
-pedidoP1.añadirAPedidoProveedor(productoP2, 40);
-console.log(pedidoP1)
-pedidoP1.ContadorProductosProveedor()
-console.log(pedidoP1._productoProveedor._nombrePP)
+// pedidoP1.añadirAPedidoProveedor(productoP1, 30);
+// pedidoP1.añadirAPedidoProveedor(productoP2, 40);
+// console.log(pedidoP1)
+// pedidoP1.ContadorProductosProveedor()
+// console.log(pedidoP1._productoProveedor._nombrePP)
 
 
 

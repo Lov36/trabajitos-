@@ -2,12 +2,12 @@ const Producto = require('./Producto');
 const Pedido = require('./Pedido');
 
 class CarritoCompras {
-    constructor(idCarrito, productos, pedido){
+    constructor(idCarrito, productos, ){
         this._idCarrito = idCarrito;
-        this._cantidad = 1;
+        this._cantidad = 0;
         this._fechaAgregacion = new Date;
         this._productos = productos;
-        this._pedido = pedido;
+        
     }
 
     get idCarrito(){
@@ -26,9 +26,7 @@ class CarritoCompras {
         return this._productos;
     }
 
-    get pedido(){
-        return this._pedido;
-    }
+   
 
     set cantidad(cantidad){
         this._cantidad = cantidad;
@@ -42,42 +40,93 @@ class CarritoCompras {
         this._productos = productos;
     }
 
-    set pedido(pedido){
-        this._pedido = pedido;
-    }
 
-    ContadorProductos(array){
+    ContadorProductos(){
         let contador=0
-        for (let i = 0; i < array.length; i++) {
-            contador=contador + array[i]._cantidad;
-            
+        for (let i = 0; i < this._productos.length; i++) {
+            contador=contador + this._productos[i]._cantidad;
         }
         console.log(`La cantidad total de productos en el carrito es: ${contador}`);
         }
     
 
-    añadirACarrito(array, producto, cantidad ){
+    añadirACarrito( producto, cantidadProduct ){
          let bus = 0
-        for (let i = 0; i < array.length; i++) {
-            if (array[i] == producto) {
+        for (let i = 0; i < this._productos.length; i++) {
+            if (this._productos[i] == producto) {
                 bus += 1
             }
         }
         if (bus > 0) {
-            producto._cantidad = cantidad
+            producto._cantidad = cantidadProduct
+            this._cantidad=this._cantidad+cantidadProduct
             
         } else  {
-            this._producto.push(producto)
-            producto._cantidad = cantidad
+            this._productos.push(producto)
+            producto._cantidad = cantidadProduct
+            this._cantidad=this._cantidad+cantidadProduct
         }
     }
     
 }
 
-var productoC1 = new Producto("321", "Moto", 2000000, "Moto negra", "suzuki");
-var productoC2 = new Producto("432", "Casco", 400000, "Casco negra", "suzuki");
+function PrecioTotal(array){
+    let contador2 = 0;
+    let suma = 0
+    for (let i = 0; i < array._productos.length; i++) { 
+        contador2 = array._productos[i]._precioProducto * array._productos[i]._cantidad;   
+        suma = suma + contador2;     
+    }
+    console.log(`El precio total de productos en el carrito es ${suma}`);
+    return suma
+}
 
-var pedido1 = new Pedido([])
+
+var productoC1 = new Producto("321", "Moto", 200000, "Moto negra", "suzuki");
+var productoC2 = new Producto("432", "Casco", 400000, "Casco negra", "suzuki");
+var carrito1 = new CarritoCompras("001",Compras = [])
+
+carrito1.añadirACarrito(productoC1,5)
+carrito1.añadirACarrito(productoC2,10)
+console.log(carrito1)
+
+const presupuesto = function (presupuestoInicial, callback,array) {
+    const promise = new Promise(function (resolve, reject) {
+        reject = false
+    if (reject == true) {
+        console.log("No se puede realizar la operacion")
+    }
+    else{
+        let suma = callback(array)
+        var sobrante = presupuestoInicial - suma;
+        if (suma > presupuestoInicial) {
+            resolve(`Su presupuesto ha alcanzado al limite, le faltan ${Math.abs(sobrante)}`)
+        } else {
+            resolve(`Le queda ${sobrante} del presupuesto inicial`)  
+        }
+    }
+    });
+  
+    return promise;
+  };
+
+  async function presupuestico(presupuestoInicial, callback,array) {
+    try {
+      let message = await presupuesto(presupuestoInicial, callback,array);
+      setTimeout(() => {
+        console.log(message);
+      }, 2000);
+    } catch (error) {
+      console.log("Error: " + error);
+    }
+  }
+  
+  presupuestico(5000000,PrecioTotal,carrito1)
+
+
+
+// carrito1.presupuesto(6000000,PrecioTotal,carrito1)
+
 
 
 module.exports = CarritoCompras; 

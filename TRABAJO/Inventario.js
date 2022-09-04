@@ -35,9 +35,13 @@ class Inventario {
 
 
     añadirAInventarioP(pedido) {
-        for (let i = 0; i < pedido._productoProveedor; i++) {
-            var productoi = new Producto(pedido._productoProveedor._idProductoP, pedido._productoProveedor._nombrePP, pedido._productoProveedor._precioComprado, pedido._productoProveedor._detalles, pedido._productoProveedor._marca)
-            this._productosInventario.push(productoi)
+            let numero = 0
+        for (let i = 0; i < pedido._productoProveedor.length; i++) {
+            let numero =+ 1
+            var producto = "producto"+numero
+            console.log(producto)
+            var producto = new Producto(pedido._productoProveedor[i]._idProductoP, pedido._productoProveedor[i]._nombrePP, pedido._productoProveedor[i]._precioComprado, pedido._productoProveedor[i]._detalles, pedido._productoProveedor[i]._marca)
+            this._productosInventario.push(producto)
         }
 
     }
@@ -60,11 +64,9 @@ var inventario1 = new Inventario("0001", pInventario1 = [])
 pedidoP1.añadirAPedidoProveedor(productoP1, 30);
 pedidoP1.añadirAPedidoProveedor(productoP2, 40);
 
-let pedido = pedidoP1
-console.log(pedidoP1._ProductoProveedor._nombrePP)
-    // let productoi = new Producto(pedido._productoProveedor._idProductoP, pedido._productoProveedor._nombrePP, pedido._productoProveedor._precioComprado, pedido._productoProveedor._detalles, pedido._productoProveedor._marca)
 
-// inventario1.añadirAInventarioP(pedidoP1)
+inventario1.añadirAInventarioP(pedidoP1)
+console.log(inventario1._productosInventario)
 // inventario1.añadirAInventarioP(pedidoP2)
 // console.log(inventario1._productosInventario)
 // inventario1.ContadorProductosInventario()
